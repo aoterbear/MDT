@@ -57,6 +57,10 @@ telemetry model-driven
   destination-id DG_MDT
 ```
 
+## Screenshoots
+
+TBD
+
 ## About Cisco IOS-XR Model-Driven Telemetry
 
 Please refer this [link](https://xrdocs.io/telemetry/) for more information about Cisco IOS-XR MDT.
