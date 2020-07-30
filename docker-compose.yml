@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  influxdb:
+    container_name: mdt_influxdb
+    build: ./influxdb
+    networks:
+      - mdt_network
+    ports:
+      - "8086:8086"
+
+  telegraf:
+    container_name: mdt_telegraf
+    build: ./telegraf
+    networks:
+      - mdt_network
+    ports:
+      - "57000:57000"
+    volumes:
+      - ./telegraf/data:/home/data
+    depends_on:
+      - influxdb
+
+  grafana:
+    container_name: grafana
+    build: ./grafana
+    networks:
+      - mdt_network
+    ports:
+      - "3000:3000"
+
+networks:
+  mdt_network:
