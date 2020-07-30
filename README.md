@@ -1,6 +1,14 @@
 # MDT
 
-## Environment
+## Intro
+
+This project is for using TIG stack (Telegraf, InfluxDB, Grafana) to demonstrate Cisco IOS-XR Model-Driven Telemetry.
+
+It will setup three individual container process and create one Docker network with Docker Compose, and after you finish, Docker Compose will remove these three container process and the docker network it created automatically, but the Docker images will remain on your system for the sake of future use.
+
+This project is based on official Docker images, telegraf:1.15.1,  influxdb:1.8.1 and grafana/grafana:7.1.1.
+
+## Test Environment
 
 Even though this is container, it should run anywhere, but I still want to say **It works on my environment.** :)
 
