@@ -6,7 +6,8 @@ Even though this is container, it should run anywhere, but I still want to say *
 
 My environment is below:
 
-`NAME="Ubuntu"
+```
+NAME="Ubuntu"
 VERSION="18.04.4 LTS (Bionic Beaver)"
 ID=ubuntu
 ID_LIKE=debian
@@ -17,11 +18,12 @@ SUPPORT_URL="https://help.ubuntu.com/"
 BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
 VERSION_CODENAME=bionic
-UBUNTU_CODENAME=bionic`
+UBUNTU_CODENAME=bionic
 
-`Docker version 19.03.9, build 9d988398e7`
+docker-compose version 1.26.2, build eefe0d31
 
-`docker-compose version 1.26.2, build eefe0d31`
+Docker version 19.03.9, build 9d988398e7
+```
 
 ## How To Use?
 
