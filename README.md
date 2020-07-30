@@ -28,7 +28,7 @@ Docker version 19.03.9, build 9d988398e7
 ## How To Use?
 
 1. Use git clone to copy this project on your own laptop
-2. cd this folder
+2. Make sure the folder you copied is called MDT, otherwise, change the name, cd to this folder
 3. Excute cmd `docker-compose up -d`
 4. Open Grafana UI with  http://localhost:3000, or change the "localhost" to your own specific IP address
 5. The datastore is already been added, so, test the datastore connectivity first and then you can begin to configure the Grafana Dashboard
@@ -37,7 +37,7 @@ Docker version 19.03.9, build 9d988398e7
 
 Below is configuration on IOS-XRv 9000, version 7.1.1, this configuration works with this project default telegraf config file located in `./telegraf/data/new.conf`, you need to configure all the configuration below on your own devices manullay. This configuration should workd on all IOS-XR 7.1.1 platform.
 
-The configuration feed device cpu utiliazatiion and interface counters as well as interface data rate only by now. You can add more sensor-group configuration to make the device to feed more data, and please remeber once you add sensor-group, the telegraf config file need be updated also. About the telegraf config file, you can refer [this](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/cisco_telemetry_mdt).
+The configuration feed device cpu utiliazatiion and interface counters as well as interface data rate only by now. You can add more sensor-group configuration to make the device to feed more data, and please remeber once you add sensor-group, the telegraf config file need be updated also. About the telegraf config file, you can refer this [link](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/cisco_telemetry_mdt).
 
 ```
 telemetry model-driven
@@ -57,7 +57,9 @@ telemetry model-driven
   destination-id DG_MDT
 ```
 
+## About Cisco IOS-XR Model-Driven Telemetry
 
+Please refer this [link](https://xrdocs.io/telemetry/) for more information about Cisco IOS-XR MDT.
 
 
 
