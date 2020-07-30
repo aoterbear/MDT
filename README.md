@@ -33,7 +33,25 @@ UBUNTU_CODENAME=bionic`
 
 ## Configuration on IOS-XR
 
-Below is configuration on IOS-XRv 9000, version 7.1.1, this configuration works with this project default telegraf config located in `./telegraf/data/new.conf`, you need t
+Below is configuration on IOS-XRv 9000, version 7.1.1, this configuration works with this project default telegraf config file located in `./telegraf/data/new.conf`, you need to configure all the configuration below on your own devices manullay. This configuration should workd on all IOS-XR 7.1.1 platform.
+
+The configuration feed device cpu utiliazatiion and interface counters as well as interface data rate only by now. You can add more sensor-group configuration to make the device to feed more data, and please remeber once you add sensor-group, the telegraf config file need be updated also. About the telegraf config file, you can refer [this](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/cisco_telemetry_mdt).
+
+> telemetry model-driven
+>  destination-group DG_MDT
+>   vrf OOB
+>   address-family ipv4 x.x.x.x port 57000
+>    encoding self-describing-gpb
+>    protocol tcp
+>  sensor-group cpu
+>   sensor-path Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/cpu-utilization/total-cpu-one-minute
+>  sensor-group interfaces
+>   sensor-path Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/data-rate
+>   sensor-path Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters
+>  subscription Sub_MDT
+>   sensor-group-id cpu sample-interval 5000
+>   sensor-group-id interfaces sample-interval 5000
+>   destination-id DG_MDT
 
 
 
