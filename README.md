@@ -37,7 +37,8 @@ Below is configuration on IOS-XRv 9000, version 7.1.1, this configuration works 
 
 The configuration feed device cpu utiliazatiion and interface counters as well as interface data rate only by now. You can add more sensor-group configuration to make the device to feed more data, and please remeber once you add sensor-group, the telegraf config file need be updated also. About the telegraf config file, you can refer [this](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/cisco_telemetry_mdt).
 
-`telemetry model-driven
+```
+telemetry model-driven
  destination-group DG_MDT
   vrf OOB
   address-family ipv4 x.x.x.x port 57000
@@ -51,7 +52,10 @@ The configuration feed device cpu utiliazatiion and interface counters as well a
  subscription Sub_MDT
   sensor-group-id cpu sample-interval 5000
   sensor-group-id interfaces sample-interval 5000
-  destination-id DG_MDT`
+  destination-id DG_MDT
+```
+
+
 
 
 
