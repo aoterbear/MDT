@@ -29,13 +29,11 @@ UBUNTU_CODENAME=bionic`
 2. cd this folder
 3. Excute cmd `docker-compose up -d`
 4. Open Grafana UI with  http://localhost:3000, or change the "localhost" to your own specific IP address
-5. The datastore is already been added, so, you can begin to configure the Grafana Dashboard directly
-
-
+5. The datastore is already been added, so, test the datastore connectivity first and then you can begin to configure the Grafana Dashboard
 
 ## Configuration on IOS-XR
 
-TBD
+Below is configuration on IOS-XRv 9000, version 7.1.1, this configuration works with this project default telegraf config located in `./telegraf/data/new.conf`, you need t
 
 
 
