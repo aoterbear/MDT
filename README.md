@@ -43,7 +43,8 @@ The configuration feed device cpu utiliazatiion and interface counters as well a
 telemetry model-driven
  destination-group DG_MDT
   vrf OOB
-  address-family ipv4 x.x.x.x port 57000
+#Change x.x.x.x to your own specific IP address, it should be your docker host IP address.
+  address-family ipv4 x.x.x.x port 57000  
    encoding self-describing-gpb
    protocol tcp
  sensor-group cpu
