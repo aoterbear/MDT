@@ -27,7 +27,7 @@ Docker version 19.03.9, build 9d988398e7
 
 ## How To Use?
 
-<!--This is for demo purpose only, there is no persistent datastore or volume on influxdb container, so you will lost all the data after killing or removing the influxdb container, but you can still access the data with json format file which is ./telegraf/data/telegraf.txt-->
+**This is for demo purpose only, there is no persistent datastore or volume on influxdb container, so you will lost all the data after killing or removing the influxdb container, but you can still access the data with json format file which is ./telegraf/data/telegraf.txt**
 
 1. Use git clone to copy this project on your own laptop
 2. Make sure the folder you copied is called MDT, otherwise, change the name, cd to this folder
