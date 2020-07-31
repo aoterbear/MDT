@@ -8,6 +8,10 @@ services:
       - mdt_network
     ports:
       - "8086:8086"
+    environment:
+      - INFLUXDB_DB=mdt_db
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=admin
 
   telegraf:
     container_name: mdt_telegraf
@@ -20,6 +24,12 @@ services:
       - ./telegraf/data:/home/data
     depends_on:
       - influxdb
+    environment:
+      - DB_URL=http://mdt_influxdb:8086
+      - DB_USERNAME=admin
+      - DB_PASSWORD=admin
+      - DB_DATABASE=mdt_db
+      - SERVICE_ADDRESS=mdt_telegraf:57000
 
   grafana:
     container_name: grafana
