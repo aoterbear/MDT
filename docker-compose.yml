@@ -9,10 +9,12 @@ services:
 #not necessary here, for external host calling influxdb api usecase
     ports:
       - "8086:8086"
-    environment:
-      - INFLUXDB_DB=mdt_db
-      - INFLUXDB_ADMIN_USER=admin
-      - INFLUXDB_ADMIN_PASSWORD=admin
+#    environment:
+#      - INFLUXDB_DB=mdt_db
+#      - INFLUXDB_ADMIN_USER=admin
+#      - INFLUXDB_ADMIN_PASSWORD=admin
+    env_file:
+      - var.env
 
   telegraf:
     container_name: mdt_telegraf
@@ -25,12 +27,14 @@ services:
       - ./telegraf/data:/home
     depends_on:
       - influxdb
-    environment:
-      - DB_URL=http://mdt_influxdb:8086
-      - DB_USERNAME=admin
-      - DB_PASSWORD=admin
-      - DB_DATABASE=mdt_db
-      - SERVICE_ADDRESS=mdt_telegraf:57000
+#    environment:
+#      - DB_URL=http://mdt_influxdb:8086
+#      - DB_USERNAME=admin
+#      - DB_PASSWORD=admin
+#      - DB_DATABASE=mdt_db
+#      - SERVICE_ADDRESS=mdt_telegraf:57000
+    env_file:
+      - var.env
 
   grafana:
     container_name: grafana
