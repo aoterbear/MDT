@@ -6,6 +6,7 @@ services:
     build: ./influxdb
     networks:
       - mdt_network
+#not necessary here, for external host calling influxdb api usecase
     ports:
       - "8086:8086"
     environment:
