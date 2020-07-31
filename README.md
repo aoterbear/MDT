@@ -1,6 +1,6 @@
 # MDT
 
-## Intro
+## Introduction
 
 This project is for using TIG stack (Telegraf, InfluxDB, Grafana) to demonstrate Cisco IOS-XR Model-Driven Telemetry.
 
@@ -120,6 +120,44 @@ time                     bytes_sent   bytes_received interface_name
 2020-07-31T10:26:20.409Z 0            0              Null0
 2020-07-31T10:26:20.409Z 10642686161  10621272462    GigabitEthernet0/0/0/2
 2020-07-31T10:26:20.409Z 7081463006   7143099210     GigabitEthernet0/0/0/3
+> select "input_data_rate","output_data_rate","interface_name" from "data_rate" where time > now() - 30s
+name: data_rate
+time                     input_data_rate output_data_rate interface_name
+----                     --------------- ---------------- --------------
+2020-07-31T14:54:55.772Z 0               0                Null0
+2020-07-31T14:54:55.774Z 43              2006             MgmtEth0/RP0/CPU0/0
+2020-07-31T14:54:55.776Z 0               0                SINT0/0/0
+2020-07-31T14:54:55.777Z 56              94               GigabitEthernet0/0/0/0
+2020-07-31T14:54:55.778Z 0               0                GigabitEthernet0/0/0/6
+2020-07-31T14:54:55.78Z  0               0                GigabitEthernet0/0/0/5
+2020-07-31T14:54:55.782Z 0               0                GigabitEthernet0/0/0/4
+2020-07-31T14:54:55.784Z 37              37               GigabitEthernet0/0/0/3
+2020-07-31T14:54:55.785Z 55              56               GigabitEthernet0/0/0/2
+2020-07-31T14:54:55.786Z 38              0                GigabitEthernet0/0/0/1
+2020-07-31T14:55:00.766Z 0               0                Null0
+2020-07-31T14:55:00.768Z 0               0                SINT0/0/0
+2020-07-31T14:55:00.769Z 56              94               GigabitEthernet0/0/0/0
+2020-07-31T14:55:00.771Z 0               0                GigabitEthernet0/0/0/6
+2020-07-31T14:55:00.772Z 0               0                GigabitEthernet0/0/0/5
+2020-07-31T14:55:00.773Z 0               0                GigabitEthernet0/0/0/4
+2020-07-31T14:55:00.774Z 38              37               GigabitEthernet0/0/0/3
+2020-07-31T14:55:00.775Z 55              56               GigabitEthernet0/0/0/2
+2020-07-31T14:55:00.776Z 38              0                GigabitEthernet0/0/0/1
+2020-07-31T14:55:00.777Z 43              2006             MgmtEth0/RP0/CPU0/0
+> select "total_cpu_one_minute","node_name" from "cpu_utilization" where time > now() - 45s
+name: cpu_utilization
+time                     total_cpu_one_minute node_name
+----                     -------------------- ---------
+2020-07-31T15:08:50.667Z 2                    0/RP0/CPU0
+2020-07-31T15:08:50.718Z 28                   0/0/CPU0
+2020-07-31T15:08:55.649Z 2                    0/RP0/CPU0
+2020-07-31T15:08:55.701Z 28                   0/0/CPU0
+2020-07-31T15:09:00.658Z 2                    0/RP0/CPU0
+2020-07-31T15:09:00.703Z 28                   0/0/CPU0
+2020-07-31T15:09:05.641Z 2                    0/RP0/CPU0
+2020-07-31T15:09:05.688Z 28                   0/0/CPU0
+2020-07-31T15:09:10.642Z 2                    0/RP0/CPU0
+2020-07-31T15:09:10.679Z 28                   0/0/CPU0
 ```
 
 ### Grafana Dashboard
@@ -129,6 +167,10 @@ TBD
 ## About Cisco IOS-XR Model-Driven Telemetry
 
 Please refer this [link](https://xrdocs.io/telemetry/) for more information about Cisco IOS-XR MDT.
+
+## To Do
+
+Add Cisco IOS-XE and Cisco NX-OS related things.
 
 
 
