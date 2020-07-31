@@ -21,7 +21,7 @@ services:
     ports:
       - "57000:57000"
     volumes:
-      - ./telegraf/data:/home/data
+      - ./telegraf/data:/home
     depends_on:
       - influxdb
     environment:
