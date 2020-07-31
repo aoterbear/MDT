@@ -75,9 +75,56 @@ telemetry model-driven
 
 ### ./telegraf/data/telegraf.txt sample outputs
 
-`{"fields":{"bandwidth":10000000,"input_data_rate":0,"input_load":0,"input_packet_rate":0,"load_interval":9,"output_data_rate":0,"output_load":0,"output_packet_rate":0,"peak_input_data_rate":0,"peak_input_packet_rate":0,"peak_output_data_rate":0,"peak_output_packet_rate":0,"reliability":255},"name":"data_rate","tags":{"host":"86cab7c92999","interface_name":"GigabitEthernet0/0/0/6","path":"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/data-rate","source":"A9Kv-6","subscription":"Sub1"},"timestamp":1596189070}`
+#### data_rate
 
+```
+{"fields":{"bandwidth":10000000,"input_data_rate":56,"input_load":0,"input_packet_rate":9,"load_interval":9,"output_data_rate":56,"output_load":0,"output_packet_rate":9,"peak_input_data_rate":0,"peak_input_packet_rate":0,"peak_output_data_rate":0,"peak_output_packet_rate":0,"reliability":255},"name":"data_rate","tags":{"host":"86cab7c92999","interface_name":"GigabitEthernet0/0/0/2","path":"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/data-rate","source":"A9Kv-6","subscription":"Sub1"},"timestamp":1596189500}
+```
 
+#### generic_counters
+
+```
+{"fields":{"applique":0,"availability_flag":0,"broadcast_packets_received":58690043,"broadcast_packets_sent":0,"bytes_received":6330562129,"bytes_sent":182100399403,"carrier_transitions":3,"crc_errors":0,"framing_errors_received":0,"giant_packets_received":0,"input_aborts":0,"input_drops":0,"input_errors":0,"input_ignored_packets":0,"input_overruns":0,"input_queue_drops":0,"last_data_time":1596189650,"last_discontinuity_time":1594109585,"multicast_packets_received":0,"multicast_packets_sent":0,"output_buffer_failures":0,"output_buffers_swapped_out":0,"output_drops":0,"output_errors":0,"output_queue_drops":0,"output_underruns":0,"packets_received":102551903,"packets_sent":121667060,"parity_packets_received":0,"resets":0,"runt_packets_received":0,"seconds_since_last_clear_counters":0,"seconds_since_packet_received":0,"seconds_since_packet_sent":0,"throttled_packets_received":0,"unknown_protocol_packets_received":0},"name":"generic_counters","tags":{"host":"86cab7c92999","interface_name":"MgmtEth0/RP0/CPU0/0","path":"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters","source":"A9Kv-6","subscription":"Sub1"},"timestamp":1596189650}
+```
+
+#### cpu_utilization
+
+```
+{"fields":{"process_cpu/process_cpu_fifteen_minute":0,"process_cpu/process_cpu_five_minute":0,"process_cpu/process_cpu_one_minute":0,"process_cpu/process_id":24451,"process_cpu/process_name":"exec","process_cpu/thread_cpu/process_cpu_fifteen_minute":0,"process_cpu/thread_cpu/process_cpu_five_minute":0,"process_cpu/thread_cpu/process_cpu_one_minute":0,"process_cpu/thread_cpu/thread_id":24465,"process_cpu/thread_cpu/thread_name":"evm_signal_thre","total_cpu_fifteen_minute":1,"total_cpu_five_minute":2,"total_cpu_one_minute":2},"name":"cpu_utilization","tags":{"host":"86cab7c92999","node_name":"0/RP0/CPU0","path":"Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/cpu-utilization","source":"A9Kv-6","subscription":"Sub1"},"timestamp":1596189655}
+```
+
+### InfluxDB CLI
+
+```
+Connected to http://localhost:8086 version 1.8.1
+InfluxDB shell version: 1.8.1
+> select "bytes_sent","bytes_received","interface_name" from "generic_counters" where time > now() - 15s
+name: generic_counters
+time                     bytes_sent   bytes_received interface_name
+----                     ----------   -------------- --------------
+2020-07-31T10:26:15.4Z   17958093757  10720465560    GigabitEthernet0/0/0/0
+2020-07-31T10:26:15.4Z   0            0              Null0
+2020-07-31T10:26:15.4Z   24927755     7158889289     GigabitEthernet0/0/0/1
+2020-07-31T10:26:15.4Z   7081436276   7143072418     GigabitEthernet0/0/0/3
+2020-07-31T10:26:15.4Z   182484983591 6339236225     MgmtEth0/RP0/CPU0/0
+2020-07-31T10:26:15.4Z   0            0              GigabitEthernet0/0/0/4
+2020-07-31T10:26:15.4Z   10642648337  10621234638    GigabitEthernet0/0/0/2
+2020-07-31T10:26:15.4Z   0            0              GigabitEthernet0/0/0/5
+2020-07-31T10:26:15.4Z   0            0              GigabitEthernet0/0/0/6
+2020-07-31T10:26:20.409Z 0            0              GigabitEthernet0/0/0/5
+2020-07-31T10:26:20.409Z 0            0              GigabitEthernet0/0/0/6
+2020-07-31T10:26:20.409Z 17958159180  10720503650    GigabitEthernet0/0/0/0
+2020-07-31T10:26:20.409Z 0            0              GigabitEthernet0/0/0/4
+2020-07-31T10:26:20.409Z 182486245359 6339267416     MgmtEth0/RP0/CPU0/0
+2020-07-31T10:26:20.409Z 24927829     7158916285     GigabitEthernet0/0/0/1
+2020-07-31T10:26:20.409Z 0            0              Null0
+2020-07-31T10:26:20.409Z 10642686161  10621272462    GigabitEthernet0/0/0/2
+2020-07-31T10:26:20.409Z 7081463006   7143099210     GigabitEthernet0/0/0/3
+```
+
+### Grafana Dashboard
+
+TBD
 
 ## About Cisco IOS-XR Model-Driven Telemetry
 
