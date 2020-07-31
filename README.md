@@ -73,7 +73,11 @@ telemetry model-driven
 
 ## Screenshoots
 
-TBD
+### ./telegraf/data/telegraf.txt sample outputs
+
+`{"fields":{"bandwidth":10000000,"input_data_rate":0,"input_load":0,"input_packet_rate":0,"load_interval":9,"output_data_rate":0,"output_load":0,"output_packet_rate":0,"peak_input_data_rate":0,"peak_input_packet_rate":0,"peak_output_data_rate":0,"peak_output_packet_rate":0,"reliability":255},"name":"data_rate","tags":{"host":"86cab7c92999","interface_name":"GigabitEthernet0/0/0/6","path":"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/data-rate","source":"A9Kv-6","subscription":"Sub1"},"timestamp":1596189070}`
+
+
 
 ## About Cisco IOS-XR Model-Driven Telemetry
 
