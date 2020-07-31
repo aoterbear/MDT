@@ -1,6 +1,6 @@
 FROM telegraf:1.15.1
 
-ENV DB_ADDRESS="http://mdt_influxdb:8086"
+ENV DB_URL="http://mdt_influxdb:8086"
 ENV DB_USERNAME="admin"
 ENV DB_PASSWORD="admin"
 ENV DB_DATABASE="mdt_db"
