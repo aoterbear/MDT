@@ -1,4 +1,4 @@
-# MDT
+# IOS-XR MDT
 
 ## Introduction
 
@@ -76,7 +76,7 @@ telemetry model-driven
 ### IOS-XR show telemetry model-driven subscription
 
 ```
-RP/0/RP0/CPU0:A9Kv-1#sh telemetry model-driven subscription 
+RP/0/RP0/CPU0:A9Kv-1#sh telemetry model-driven subscription
 Sat Aug  1 22:07:30.043 CST
 Subscription:  MDT                      State: ACTIVE
 -------------
@@ -191,6 +191,3 @@ Please refer this [link](https://xrdocs.io/telemetry/) for more information abou
 ## To Do
 
 Add Cisco IOS-XE and Cisco NX-OS related things.
-
-
-
