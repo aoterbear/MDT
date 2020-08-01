@@ -5,6 +5,6 @@ datasources:
    url: http://mdt_influxdb:8086
    password: admin
    user: admin
-   database: mdt_db
+   database: xr_mdt
    access: proxy
    isDefault: true
