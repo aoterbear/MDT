@@ -7,3 +7,4 @@ datasources:
    user: admin
    database: mdt_db
    access: proxy
+   isDefault: true
