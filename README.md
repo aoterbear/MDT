@@ -73,6 +73,26 @@ telemetry model-driven
 
 ## Screenshoots
 
+### IOS-XR show telemetry model-driven subscription
+
+```
+RP/0/RP0/CPU0:A9Kv-1#sh telemetry model-driven subscription 
+Sat Aug  1 22:07:30.043 CST
+Subscription:  MDT                      State: ACTIVE
+-------------
+  Sensor groups:
+  Id                               Interval(ms)        State     
+  cpu                              5000                Resolved  
+  interfaces                       5000                Resolved  
+
+  Destination Groups:
+  Id                 Encoding            Transport   State   Port    Vrf     IP            
+  MDT                self-describing-gpb tcp         Active  57000   OOB     172.21.2.250  
+    No TLS            
+```
+
+
+
 ### ./telegraf/data/telegraf.txt sample outputs
 
 #### data_rate
