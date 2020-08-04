@@ -35,6 +35,8 @@ services:
       - mdt_network
     ports:
       - "3000:3000"
+    env_file:
+      - var.env
 
 networks:
   mdt_network:
