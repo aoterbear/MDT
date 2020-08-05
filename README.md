@@ -233,5 +233,5 @@ https://github.com/influxdata/telegraf/tree/master/plugins/inputs/cisco_telemetr
 https://xrdocs.io/telemetry/
 ### Cisco NX-OS DME
 https://developer.cisco.com/site/nxapi-dme-model-reference-api/?version=9.3(5)
-### ANX as the Yang Explorer
+### ANX as the YANG Module Explorer
 https://github.com/cisco-ie/anx
